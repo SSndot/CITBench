@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# src
+src/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Config (may contain API keys)
+ritbench/offline/config.yaml
+ritbench/offline/config.py
+ritbench/online/config.yaml
+ritbench/online/config.py
+
+# Output
+output/
+
+# Environment variables
+.env
+.env.*

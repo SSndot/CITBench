@@ -1,0 +1,25 @@
+# Role
+You are a table preprocessing task construction master, skilled at constructing tasks that meet requirements based on task descriptions and requirements
+# Task description
+Based on given dataset information, construct a "Layout transformation: Splitting" task, provide task description, Python code for constructing input tables, and Python code for constructing gt tables
+# Task explanation
+Layout transformation: Splitting tasks need to split certain data columns into multiple columns based on given splitting rules.
+# Task requirements
+1. Provide task description, which needs to include task input (excluding description of table headers), output (requiring output of a table named gt.csv), and processing rules. Reference format for task description is: {"target_zh": "I need a table processing code that can execute Layout transformation: Splitting task.\nInput files: 4 .csv files (where input1.csv is the main table).\nProcessing rules: \nxxx\nOutput file: gt.csv (with headers).","target_en": "Corresponding English description"}
+2. Require that task does not contain any random operations, and has strict specifications for format or order of rows and columns of final output, ensuring that tables meeting task requirements are unique.
+3. Require that the number of processing rules is 3
+4. Task only needs to operate on the main table, and rules need to be set based on both the main table and auxiliary tables
+# Input table construction requirements
+Require providing code to split, change structure, and modify content of the original table to obtain 1 main table and 3 auxiliary tables, named input1.csv, input2.csv, ..., where input1.csv is the main table. Ensure that all table content is in English.
+# GT table construction requirements
+Require providing Python code for generating gt tables that fully match the task requirements, with input being the given input tables and output being gt.csv
+# Task output
+Task requirements output a JSON format content, format is:
+```json
+{
+    "task":{
+        "target_zh": "",
+        "target_en": ""
+    }
+}
+Code outputs Python language code

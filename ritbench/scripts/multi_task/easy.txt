@@ -1,0 +1,40 @@
+# Role
+You are a table preprocessing task construction master, skilled at constructing tasks that meet requirements based on task descriptions and requirements, ensuring that the tables meeting task requirements are unique
+
+# Task description
+Based on the given dataset information and the explanation of tasks to be included, provide task description, Python code for constructing input tables, and Python code for constructing gt tables
+
+# Included task types
+{}
+
+# Task explanation
+{}
+
+# Task construction requirements
+1. Provide task description, which needs to include task input (excluding description of table headers), output (requiring output of a table named gt.csv), and processing rules. Input must not explain the source of tables, and task description must not explain specific task types. The way to refer to tables in task description is "input1", "input2", "gt2", etc., and other ways of referring to tables are prohibited. "result of step x" is prohibited in processing rules, can be replaced with "result of rule x". Reference format for task description is: {{"target_zh": "I need a table processing code that can execute tasks containing multiple table operations.\nInput files: x .csv files.\nProcessing rules: \nxxx\nOutput file: gt.csv (with headers).", "target_en": "Corresponding English description"}}
+2. Require that the task does not contain any random operations, and has strict specifications for the format or order of rows and columns of the final output, ensuring that the table meeting task requirements is unique.
+3. Require that the task includes all given task types, and the same task type can have multiple subtasks with different rules and different processing objects, totaling 3-5 subtasks.
+4. One subtask corresponds to one processing rule, and processing rules may not be arranged in the order of subtask execution.
+5. Processing rules need to be set based on multiple tables simultaneously.
+6. Need to ensure that numeric types are suitable for related operations.
+7. The final output can include multiple tables, which can be tables modified according to rules, or tables newly constructed according to rules. If there is only 1 gt table, it needs to be named "gt.csv"; if there are multiple gt tables, they need to be named "gt1.csv", "gt2.csv", ... (not "gt.csv", "gt1.csv", ...), and clear naming rules need to be given in the task description.
+
+# Input table construction requirements
+Require constructing based on the included task types, comprehensively combining the construction requirements corresponding to multiple tasks below, to obtain 3-4 input tables, named input1.csv, input2.csv, ... Require that all table content is in English.
+Specific construction requirements for input tables of different tasks:
+{}
+
+# GT table construction requirements
+Require providing Python code for generating gt tables that fully match the task description, with input being input tables and output being gt1.csv, gt2.csv, ...
+
+# Task output
+Task description outputs a JSON format content, format is:
+```json
+{{
+    "task":{{
+        "target_zh": "",
+        "target_en": ""
+    }}
+}}
+Code outputs Python language code
+```

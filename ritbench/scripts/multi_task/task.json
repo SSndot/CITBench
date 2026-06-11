@@ -1,0 +1,74 @@
+{
+    "Data Imputation": {
+        "task_info": "Data Imputation tasks need to detect whether missing values mentioned in requirements exist in data based on given requirements and fill them according to rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables, while injecting missing values into the main table."
+    },
+    "Error Correction": {
+        "task_info": "Error Correction tasks need to detect whether errors mentioned in requirements exist in data based on given requirements and correct them according to rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables, while injecting error types mentioned in task description into the main table."
+    },
+    "Schema Matching": {
+        "task_info": "Schema Matching tasks need to identify and match key columns with the same meaning in two tables based on given rules, and merge the two tables into one using key columns.",
+        "task_input": "Require providing Python code to split the original table into multiple tables, splitting the original table by columns, and ensuring that there are 2-3 overlapping columns between each two split tables. Overlapping columns between different table pairs can be different. For overlapping column names, perform synonym replacement in the large model input, and introduce format heterogeneity differences that do not affect content for all rows in overlapping columns."
+    },
+    "Entity Matching": {
+        "task_info": "Entity Matching tasks need to identify and match rows pointing to the same real-world entity in two tables based on given rules using key columns, and merge the two tables into one.",
+        "task_input": "1. Select core key columns: Choose 2-3 unique identifier columns from the original table as required columns between the two split tables. Key columns between different split tables can be different.\n2. Column subset division: Group non-key columns of the original table by information type, assigning key columns + 1 group of non-key columns to each table.\n3. Entity subset division: Extract 50% - 70% of rows from the original table as overlapping entity set. This part of entities exists in both tables simultaneously for matching. Supplement 10% - 20% of original table unique rows to each table. Unique rows of the two tables have no intersection.\n4. Introduce controllable data noise: Only add different noise to key column fields of overlapping entities for the two tables. Prohibited from modifying column names, can only modify field content. Noise includes format modification, spelling/abbreviation errors, precision reduction of numeric/date columns, ensuring noise is realistic and does not destroy entity associations."
+    },
+    "Row Population": {
+        "task_info": "Row Population tasks need to add some rows based on given new row information and data, as well as partial rules. Does not include modification operations on existing rows.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Schema Augmentation": {
+        "task_info": "Schema Augmentation tasks need to add some feature columns based on given rules. Does not include modification operations on existing columns.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Row2row Transformation-Formatting": {
+        "task_info": "Row-to-row Transformation: Formatting tasks need to transform each row of data based on given transformation rules. Transformation content is unified data representation form, does not change actual semantics of data. Transformation only involves modification of existing cells, does not include deletion or addition operations.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Row2row Transformation-Normalization": {
+        "task_info": "Row-to-row Transformation: Normalization tasks need to transform each row of data based on given transformation rules. Transformation content is dimensional scaling of numeric fields to make data fall within specified intervals or follow specific distributions. Transformation only involves modification of existing cells, does not include deletion or addition operations.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Row2row Transformation-Standardization": {
+        "task_info": "Row-to-row Transformation: Standardization tasks need to transform each row of data based on given transformation rules. Transformation content is mapping data to industry/business standard terminology or value domains, eliminating synonymous heterogeneous expressions. Transformation only involves modification of existing cells, does not include deletion or addition operations.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Row2row Transformation-Mapping": {
+        "task_info": "Row-to-row Transformation: Mapping tasks need to transform each row of data based on given transformation rules. Transformation content is one-to-one/many-to-one conversion of field values based on preset key-value mapping tables. Transformation only involves modification of existing cells, does not include deletion or addition operations.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Sorting": {
+        "task_info": "Layout transformation: Sorting tasks need to sort data based on given sorting rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Filtering": {
+        "task_info": "Layout transformation: Filtering tasks need to filter data based on given filtering rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Splitting": {
+        "task_info": "Layout transformation: Splitting tasks need to split certain data columns into multiple columns based on given splitting rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Pivoting": {
+        "task_info": "Layout transformation: Pivoting tasks map row-dimensional classification data of tables to column dimensions, and calculate target numerical values through specified aggregation functions, ultimately generating more concise and readable cross-tabulation summary tables.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Swapping": {
+        "task_info": "Layout transformation: Swapping tasks need to swap data rows or columns based on given swapping rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Grouping": {
+        "task_info": "Layout transformation: Grouping tasks need to group data based on given grouping rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Aggregating": {
+        "task_info": "Layout transformation: Aggregating tasks need to aggregate data based on given aggregation rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    },
+    "Layout Transformation-Concatenating": {
+        "task_info": "Layout transformation: Concatenating tasks need to merge certain data columns based on given merging rules.",
+        "task_input": "Require providing code to split, change structure, and modify content of original tables to obtain 1 main table and multiple auxiliary tables."
+    }
+}

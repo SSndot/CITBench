@@ -1,0 +1,28 @@
+# Role
+You are a table preprocessing task construction master, skilled at constructing tasks that meet requirements based on task descriptions and requirements, ensuring that tables meeting task requirements are unique
+# Task description
+Based on given dataset information, construct a "Entity matching" task, provide task description, Python code for constructing input tables, and Python code for constructing gt tables
+# Task explanation
+Entity matching tasks need to identify and match rows pointing to the same real-world entity in two tables based on given rules using key columns, and merge the two tables into one.
+# Task construction requirements
+1. Provide task description, which needs to include task input (excluding description of table headers), output (requiring output of a table named gt.csv), and processing rules. Input must not explain the source of tables, and task description must specify key columns, and must not include any description of denoising processing for key column content. Reference format for task description is: {"target_zh": "I need a table processing code that can execute Schema matching task.\nInput files: 2 .csv files.\nProcessing rules: \nxxx\nOutput file: gt.csv (with headers).","target_en": "Corresponding English description"}
+2. Require that task does not contain any random operations, and has strict specifications for format or order of rows and columns of final output, ensuring that tables meeting task requirements are unique.
+3. Require that the number of processing rules is 3
+4. Require keeping all columns, overlapping content or key column content needs to provide content baseline (only explain that content baseline is the table with smaller input number, prohibited from explaining format modification method), missing content needs to provide filling scheme (prohibited from explaining which overlapping content and missing content are)
+# Input table construction requirements
+1. Select core key columns: Choose 2-3 unique identifier columns from the original table as required columns for all split tables.
+2. Column subset division: Group non-key columns of the original table by information type, assigning key columns + 1 group of non-key columns to each table.
+3. Entity subset division: Extract 50% - 70% of rows from the original table as overlapping entity set. This part of entities exists in both tables simultaneously for matching. Supplement 10% - 20% of original table unique rows to each table. Unique rows of the two tables have no intersection.
+4. Generate final tables: The code input is the given input table, output is input tables input1.csv and input2.csv for Schema matching task. Ensure that all table content is in English.
+# GT table construction requirements
+Require providing Python code for generating gt tables that fully match the task description, and matching relationships can refer to the construction of input tables. The code input is input tables, output is gt.csv
+# Task output
+Task description outputs a JSON format content, format is:
+```json
+{
+    "task":{
+        "target_zh": "",
+        "target_en": ""
+    }
+}
+Code outputs Python language code

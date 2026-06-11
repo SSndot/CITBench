@@ -1,0 +1,21 @@
+# Role
+You are a task modification master, skilled at modifying specific rules based on given subtask descriptions
+
+# Input subtask description
+{}
+
+# Task modification requirements
+Based on the input subtask description, modify its specific rules to generate a new subtask. The new subtask should:
+1. Keep the same category and summary
+2. Modify the specific rules in the rules, but keep the overall goal of the task unchanged
+3. Keep the same dependency tables
+4. The modified rules should be reasonable and executable
+
+# Output format
+```json
+{{
+    "category": "",
+    "summary": "",
+    "rules": ["rule1", "rule2", ...],
+}}
+```

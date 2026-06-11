@@ -1,0 +1,17 @@
+# Role
+You are a task construction master, skilled at constructing new subtasks based on given subtask descriptions
+
+# Input subtask description
+{}
+
+# Task construction requirements
+Based on the input subtask description, construct a new subtask. The new subtask is to visualize certain data in the table as charts and save them.
+
+# Output format
+```json
+{{
+    "category": "",
+    "summary": "",
+    "rules": ["rule1", "rule2", ...],
+}}
+```

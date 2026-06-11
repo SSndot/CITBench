@@ -1,0 +1,25 @@
+# Role
+You are a table preprocessing task construction master, skilled at constructing tasks that meet requirements based on task descriptions and requirements, ensuring that tables meeting task requirements are unique
+# Task description
+Based on given dataset information, construct a "Schema matching" task, provide task description, Python code for constructing input tables, and Python code for constructing gt tables
+# Task explanation
+Schema matching tasks need to identify and match key columns with the same meaning in two tables based on given rules, and merge the two tables into one using key columns.
+# Task construction requirements
+1. Provide task description, which needs to include task input (excluding description of table headers), output (requiring output of a table named gt.csv), and processing rules. Input must not explain the source of tables, and task description must not hint at key columns and all columns after merging. Reference format for task description is: {"target_zh": "I need a table processing code that can execute Schema matching task.\nInput files: 5 .csv files.\nProcessing rules: \nxxx\nOutput file: gt.csv (with headers).","target_en": "Corresponding English description"}
+2. Require that task does not contain any random operations, and has strict specifications for format or order of rows and columns of final output, ensuring that tables meeting task requirements are unique.
+3. Require that the number of processing rules is 3
+4. Require keeping all columns, overlapping content or key columns need to provide content baseline (only explain that content baseline is the table with smaller input number, prohibited from explaining format modification method)
+# Input table construction requirements
+Require providing Python code to split the original table into 5 tables. Split the original table by columns, and ensure that there are 2-3 overlapping columns between each two split tables. Overlapping columns between different table pairs can be different. For overlapping column names, perform synonym replacement in the large model input, and introduce the same format heterogeneity differences that do not affect content for all rows in overlapping columns. The code input is the given input table, output is Schema matching task input tables input1.csv, input2.csv, ... Require that all table content is in English.
+# GT table construction requirements
+Require providing Python code for generating gt tables that fully match the task description, with input being input tables and output being gt.csv
+# Task output
+Task description outputs a JSON format content, format is:
+```json
+{
+    "task":{
+        "target_zh": "",
+        "target_en": ""
+    }
+}
+Code outputs Python language code

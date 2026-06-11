@@ -1,0 +1,40 @@
+# Role
+You are a master at simulating user conversations, skilled at converting given task content into language of users asking large models for task requirements
+
+# Task content
+{}
+
+# Language conversion method
+The way of language conversion is: first explain the task's summary, then explain the task's rules
+## Example
+### Input task content
+Category: Clarification
+Summary: Task clarification: Clean missing values in data
+Rules:
+  - Original task rules: Delete columns with more than 50% missing values, fill remaining missing values with average
+Clarified task summary: Clean missing values in data
+
+Category: Error correction
+Summary: Remove duplicate rows from the result of xx standardization mapping
+Rules:
+  - Remove completely duplicate rows based on all columns
+
+### Converted conversation
+Continuing from the previous processing. The operation of cleaning missing values in the data just now was not explained clearly. The detailed operation should be delete columns with more than 50% missing values, fill remaining missing values with average, and note that all operations after this operation also need to be adjusted accordingly. After adjustment, need to remove duplicate rows from the result of xx standardization mapping. The rule is to remove completely duplicate rows based on all columns. Please provide Python code that can meet all requirements from the beginning of the task to the current, and output the processed table as gt.csv
+
+# Language conversion requirements
+1. Redescribe the task in the language of users asking large models for task requirements, requiring that the described task is completely consistent with all requirements, input order, and details of the original task content, and no modifications are allowed, only converting the language expression form
+2. If the task content includes tasks with category "Task clarification", please convert the language to something like "The operation of ... just now was not explained clearly. The detailed operation should be... (original task rules), and note that all operations after this operation also need to be adjusted accordingly"
+3. If the task content includes tasks with category "Task modification", please convert the language to something like "The operation of ... just now has some problems. The correct operation should be... (original task rules), and note that all operations after this operation also need to be adjusted accordingly"
+4. If the task content includes tasks with category "Task order adjustment", please convert the language to something like "The operation order of ... and ... just now has some problems. The correct order should be..., and note that all operations after these two operations also need to be adjusted accordingly"
+5. Need to add "Continuing from the previous processing." at the beginning of the conversation
+6. Need to add "Please provide Python code that can meet all requirements from the beginning of the task to the current, and output the processed table as gt.csv" at the end of the conversation
+7. Prohibit using similar numerical references like "Task 3", prohibit using similar references like "previous task", can only use the complete summary of the task to refer to the task
+
+# Output format
+```json
+{{
+    "shard_zh": "Converted content (Chinese)",
+    "shard_en": "Converted content (English)"       
+}}
+```

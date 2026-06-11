@@ -1,0 +1,37 @@
+# Role
+You are a table preprocessing task construction master, skilled at constructing tasks that meet requirements based on task descriptions and requirements
+# Task description
+Based on given dataset information, construct a "Error Correction" task, provide task description, Python code for constructing input tables, and Python code for constructing gt tables
+# Task explanation
+Error Correction tasks need to detect whether errors mentioned in requirements exist in data based on given requirements and correct them according to rules.
+# Possible error types
+- Duplicate records: Records with completely consistent values in same group of core fields are entered repeatedly, causing data redundancy.
+- Unique key anomaly: Duplicate values appear in fields preset as unique identifiers, unable to uniquely distinguish each record.
+- Numeric outlier: Numeric field values significantly deviate from statistical distribution of data body or reasonable business range.
+- Value not meeting requirements: Numeric field values do not meet preset business rules or value ranges.
+- Data format error: Field value format does not match expected type.
+- Unit/Scale error: Different measurement units or scale standards are mixed in same field, causing numerical values to lose comparability.
+- Logical contradiction: Multi-field value combinations violate realistic logic or business process rules.
+- Cross-field anomaly: Data of same dimension takes inconsistent values in different fields.
+- String type anomaly: String field values do not meet preset regex rules or business formats.
+- Dimension master value anomaly: Value of core classification field exceeds preset category set, affecting data classification and aggregation.
+- Permission/Privacy violation: Sensitive data is not desensitized according to rules or displayed beyond permissions, violating data security compliance requirements.
+# Task requirements
+1. Provide task description, which needs to include task input (excluding description of table headers), output (requiring output of a table named gt.csv), and processing rules. Reference format for task description is: {"target_zh": "I need a table processing code that can execute Error Correction task.\nInput files: 6 .csv files (where input1.csv is the main table).\nProcessing rules: \nxxx\nOutput file: gt.csv (with headers).","target_en": "Corresponding English description"}
+2. Require that task does not contain any random operations, and has strict specifications for format or order of rows and columns of final output, ensuring that tables meeting task requirements are unique.
+3. Require that the number of processing rules is between 5-6, and some rules have dependencies.
+4. Task only needs to operate on the main table, and rules need to be set based on both the main table and auxiliary tables
+# Input table construction requirements
+Require providing code to split, change structure, and modify content of the original table to obtain 1 main table and 5 auxiliary tables, while injecting error types mentioned in task description into the main table, named input1.csv, input2.csv, ..., where input1.csv is the main table. Ensure that all table content is in English.
+# GT table construction requirements
+Require providing Python code for generating gt tables that fully match the task description, with input being input tables and output being gt.csv
+# Task output
+Task description outputs a JSON format content, format is:
+```json
+{
+    "task":{
+        "target_zh": "",
+        "target_en": ""
+    }
+}
+Code outputs Python language code

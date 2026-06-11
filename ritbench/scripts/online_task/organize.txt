@@ -1,0 +1,55 @@
+# Role
+You are a task organization master, skilled at breaking down task execution steps and dependencies based on given task descriptions and implementation code
+
+# Available category types
+Schema matching: Tasks need to identify and match key columns with the same meaning in two tables based on given rules, and merge the two tables into one using the key columns.
+Entity matching: Tasks need to identify and match rows pointing to the same real-world entity in two tables based on given rules using key columns, and merge the two tables into one.
+Error correction: Tasks need to detect whether errors mentioned in requirements exist in data based on given requirements and correct them according to rules.
+Data imputation: Tasks need to detect whether missing values mentioned in requirements exist in data based on given requirements and fill them according to rules.
+Row population: Tasks need to add some rows based on given new row information and data, as well as partial rules. Does not include modification operations on existing rows.
+Schema augmentation: Tasks need to add some feature columns based on given rules. Does not include modification operations on existing columns.
+Row-to-row transformation-Formatting: Tasks need to transform each row of data based on given transformation rules. Transformation content is unified data representation form, does not change actual semantics of data. Transformation only involves modification of existing cells, does not include deletion or addition operations.
+Row-to-row transformation-Standardization: Tasks need to transform each row of data based on given transformation rules. Transformation content is mapping data to industry/business standard terminology or value domains, eliminating synonymous heterogeneous expressions. Transformation only involves modification of existing cells, does not include deletion or addition operations.
+Row-to-row transformation-Normalization: Tasks need to transform each row of data based on given transformation rules. Transformation content is dimensional scaling of numeric fields to make data fall within specified intervals or follow specific distributions. Transformation only involves modification of existing cells, does not include deletion or addition operations.
+Row-to-row transformation-Mapping: Tasks need to transform each row of data based on given transformation rules. Transformation content is one-to-one/many-to-one conversion of field values based on preset key-value mapping tables. Transformation only involves modification of existing cells, does not include deletion or addition operations.
+Row-to-row transformation-Anonymization: Tasks need to transform each row of data based on given transformation rules. Transformation content is privacy protection processing of sensitive fields, without destroying field format and business usability. Transformation only involves modification of existing cells, does not include deletion or addition operations.
+Layout transformation-Sorting: Tasks need to sort data based on given sorting rules.
+Layout transformation-Grouping: Tasks need to group data based on given grouping rules.
+Layout transformation-Aggregating: Tasks need to aggregate data based on given aggregation rules.
+Layout transformation-Filtering: Tasks need to filter data based on given filtering rules.
+Layout transformation-Swapping: Tasks need to swap data rows or columns based on given swapping rules.
+Layout transformation-Splitting: Tasks need to split certain data columns into multiple columns based on given splitting rules.
+Layout transformation-Concatenating: Tasks need to merge certain data columns based on given merging rules.
+Layout transformation-Pivoting: Tasks map row-dimensional classification data of tables to column dimensions, and calculate target numerical values through specified aggregation functions, ultimately generating more concise and readable cross-tabulation summary tables.
+
+# Task description
+{}
+
+# Task implementation code
+{}
+
+# Task organization construction requirements
+1. Provide subtasks and rules organization of the task description, requiring that the organization is completely consistent with the original task description, only organizing the original task description into subtasks and corresponding rules according to execution steps. Need to include output file requirements, type is "Global", "Global" represents global rules for all subtask outputs, all global rules are placed as one subtask after all subtasks. Reference format is: [{"category": "Type of subtask executed in the first step, keep completely consistent with the given task type English name (or 'Global', representing global rules for all subtask outputs)", "summary": "Brief summary of this subtask, does not contain specific rule processing logic of the task, only explains what this subtask is roughly doing and to whom", "rules": ["Rule 1 of this task", "Rule 2 of this task", ...]}, {"category": "Type of subtask executed in the second step, keep completely consistent with the given task type English name (or 'Global', representing global rules for all subtask outputs)", "summary": "Brief summary of this subtask, does not contain specific rule processing logic of the task, only explains what this subtask is roughly doing", "rules": ["Rule 1 of this task", "Rule 2 of this task", ...]}, ...]
+2. If the rules in the original task description contain content like "result of rule x", need to convert the description to "result of subtask x's summary", example as follows:
+## Example
+Original task description rule 3 corresponding to subtask 3: Filter out records with age greater than or equal to 25 and less than or equal to 60 from the result of rule 2.
+Subtask 2's summary corresponding to rule 2: Perform education field mapping transformation on input1.csv
+Subtask 3's summary: Perform age field filtering on the result of education field mapping transformation
+
+# Output format
+```json
+{{
+    "target_zh": 
+    [
+        {"category": "", "summary": "", "rules": ["rule1", "rule2", ...]}}, 
+        {"category": "", "summary": "", "rules": ["rule1", "rule2", ...]}}, 
+        ...
+    ],
+    "target_en": 
+    [
+        {"category": "", "summary": "", "rules": ["rule1", "rule2", ...]}}, 
+        {"category": "", "summary": "", "rules": ["rule1", "rule2", ...]}}, 
+        ...
+    ]          
+}}
+```
