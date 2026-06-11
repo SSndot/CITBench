@@ -53,19 +53,6 @@ The online pipeline converts offline specifications into realistic multi-turn in
      - *Order perturbation* — Swaps two subtasks in the window
 3. **Instruction Rewriter** — Reformulates subtasks into naturalistic user requests.
 
-## Evaluation Schema
-
-RITBench employs a six-dimensional evaluation framework:
-
-| Dimension | Description |
-|-----------|-------------|
-| **Schema Semantics Alignment** | Align natural language instructions with concrete table schemas |
-| **Constraint Compliant Editing** | Strict compliance with structural rules and formatting requirements |
-| **Dependency Aware Planning** | Parse logical sequences of multi-step tasks and reconstruct correct execution paths |
-| **State Consistent Interaction** | Track evolving table states and maintain contextual coherence across turns |
-| **Noise Resilient Execution** | Reject factually inconsistent, biased, or distracting inputs |
-| **Adaptive Task Orchestration** | Dynamic correction and incremental planning under mixed instruction streams |
-
 ### Metrics
 
 - **Average Performance** (*P*) — Mean level-accuracy score across *K* inference trials
@@ -85,6 +72,7 @@ RITBench/
 │   │   └── main.py             # Entry point for online pipeline
 │   └── scripts/
 │       ├── single_task/        # 32 task construction templates (8 categories)
+│       ├── multi_task/         # multi-step task construction templates
 │       └── online_task/        # Online perturbation prompt templates
 ├── data/                       # 50 real-world datasets
 │   ├── Standard/               # 3k-10k rows
